@@ -1,6 +1,6 @@
-export default function Button({ color, buttontext }) {
+export default function Button({ color, buttontext, view }) {
   return (
-    <button className={`${color} text-black px-2 py-1 rounded-md`}>
+    <button className={`${color} ${view} text-black px-3 py-1 rounded-md`}>
       {buttontext}
     </button>
   );
