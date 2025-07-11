@@ -1,16 +1,69 @@
 import Button from "../reuseables/Button";
 import LandingTextArea from "../reuseables/LandingTextArea";
 import LandingImageArea from "../reuseables/LandingImageArea";
+import Accordion from "../reuseables/Accordion";
 
 export default function Landing() {
+  const items = [
+    {
+      title: "What is an interview tracker?",
+      content:
+        "An interview tracker is a tool that helps you keep track of all your interview dates, job descriptions, documents, and notes in one place—so you never miss an important event or lose valuable information again. ApplyLog makes this simple and efficient.",
+    },
+    {
+      title: "Who should track their interviews?",
+      content:
+        "Anyone actively applying to multiple jobs should use an interview tracker. Whether you're a recent graduate, someone who's been laid off, or you're switching roles—ApplyLog helps you stay organized during the job hunt.",
+    },
+    {
+      title: "Why should I use ApplyLog?",
+      content:
+        "ApplyLog gives you quick insight into all your upcoming interviews. You can view interview types, dates, and role details at a glance. You can also save tailored resumes and job descriptions so you're always well-prepared.",
+    },
+    {
+      title: "What’s the best way to track my interviews?",
+      content:
+        "The most effective way is using a smart tool like ApplyLog. It organizes all your job applications and interviews in one easy-to-navigate dashboard—so you focus more on preparing and less on remembering.",
+    },
+    {
+      title: "What tools does ApplyLog offer?",
+      content:
+        "ApplyLog offers a complete suite to support your job search: an interview tracker, job application organizer, resume and document management, follow-up reminders, and detailed metrics to help you stay on top of everything.",
+    },
+    {
+      title: "How often should I update ApplyLog?",
+      content:
+        "You should update ApplyLog daily as you schedule or complete interviews. This habit ensures you never miss out on opportunities or lose track of key documents and dates.",
+    },
+    {
+      title: "Does ApplyLog provide insights or data?",
+      content:
+        "Yes, ApplyLog gives you helpful data such as the number of jobs saved, your application-to-interview conversion rate, daily activity logs, and more—so you always know how your job search is progressing.",
+    },
+    {
+      title: "How does ApplyLog's interview tracker work?",
+      content:
+        "You just enter the job and interview info with a few clicks. ApplyLog stores and organizes everything—job details, documents, notes, and timelines—so you always have the right info when you need it.",
+    },
+    {
+      title: "Why use ApplyLog over a spreadsheet?",
+      content:
+        "ApplyLog is far more powerful than a basic spreadsheet. It stores job posting details even if they get taken down, highlights key skill keywords, tracks all your interview/application dates, and helps automate follow-ups.",
+    },
+    {
+      title: "How long after an interview should I expect a response?",
+      content:
+        "Usually within 1–2 weeks. ApplyLog helps you monitor timelines so you know when to expect responses and when to follow up—keeping you one step ahead in your job search.",
+    },
+  ];
+
   return (
     <>
-      <div className="FirstContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full">
+      <div className="FirstContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full mt-[76px]">
         <LandingTextArea>
           <div className="flex flex-col gap-8">
             <div className="text-area flex flex-col gap-3">
               <div className="firstTop flex flex-col gap-3">
-                <p className="text-2xl font-semibold">ApplyLog</p>
                 <p className="font-bold text-4xl leading-12">
                   An easy way to track and manage your upcoming interviews
                 </p>
@@ -161,8 +214,10 @@ export default function Landing() {
         </LandingTextArea>
         <LandingImageArea />
       </div>
-      <div className="SeventContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full bg-[#14213d] ">
+      <div className="SeventContainer text-[#e5e5e5] flex flex-col gap-8  p-10 h-full w-full bg-[#14213d] ">
         <p className="text-4xl font-bold">Frequently Asked Questions</p>
+
+        <Accordion items={items} />
       </div>
     </>
   );
