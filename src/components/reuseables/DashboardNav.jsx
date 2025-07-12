@@ -23,7 +23,7 @@ export default function DashboardNav({ children }) {
             return (
               <div
                 key={index}
-                className="flex justify-center items-center gap-3 border w-full p-3 rounded-md"
+                className="flex justify-center bg-[#003566] items-center gap-3 w-full p-3 rounded-md"
               >
                 {item.logo} {item.text}
               </div>
