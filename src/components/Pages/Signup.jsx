@@ -34,11 +34,10 @@ export default function Signup() {
     "Final Round",
   ];
   return (
-    <div className="outerContainer w-full h-screen flex ">
-      <div className="leftContainer w-3/4 h-full ">
-        <GridMotion items={interviewItems} />
-      </div>
-      <div className="rightContainer flex-1 backdrop:backdrop-blur-3xl">
+    <div className="relative outerContainer w-full h-screen flex ">
+      <GridMotion items={interviewItems} />
+      <div className="leftContaienr w-2/3 h-full"></div>
+      <div className="rightContainer blur-mask z-10 w-1/3 h-fullflex ">
         <Outlet />
       </div>
     </div>

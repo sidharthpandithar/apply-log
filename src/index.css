@@ -11,3 +11,27 @@ body {
   padding: 0;
   width: 100%;
 }
+
+.blur-mask {
+  position: relative;
+  overflow: hidden; /* important to prevent blur from leaking out */
+}
+
+.blur-mask::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blur-mask > * {
+  position: relative;
+  z-index: 1;
+}

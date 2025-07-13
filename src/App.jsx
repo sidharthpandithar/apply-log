@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Signup from "./components/Pages/Signup";
 import SignupOptions from "./components/reuseables/SignupPage/SignupOptions";
 import NewUser from "./components/reuseables/SignupPage/NewUser";
+import Login from "./components/Pages/Login";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route index element={<SignupOptions />} />
             <Route path="newuser" element={<NewUser />} />
           </Route>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
