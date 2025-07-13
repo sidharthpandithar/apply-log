@@ -1,7 +1,8 @@
-import Button from "../reuseables/Button";
-import LandingTextArea from "../reuseables/LandingTextArea";
-import LandingImageArea from "../reuseables/LandingImageArea";
-import Accordion from "../reuseables/Accordion";
+import Button from "../reuseables/LandingPage/Button";
+import LandingTextArea from "../reuseables/LandingPage/LandingTextArea";
+import LandingImageArea from "../reuseables/LandingPage/LandingImageArea";
+import Accordion from "../reuseables/LandingPage/Accordion";
+import Nav from "../reuseables/LandingPage/Nav";
 
 export default function Landing() {
   const items = [
@@ -59,10 +60,11 @@ export default function Landing() {
 
   return (
     <>
+      <Nav />
       <div className="FirstContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full mt-[76px]">
         <LandingTextArea>
           <div className="flex flex-col gap-8">
-            <div className="text-area flex flex-col gap-3">
+            <div className="text-area  flex flex-col gap-3">
               <div className="firstTop flex flex-col gap-3">
                 <p className="font-bold text-4xl leading-12">
                   An easy way to track and manage your upcoming interviews
