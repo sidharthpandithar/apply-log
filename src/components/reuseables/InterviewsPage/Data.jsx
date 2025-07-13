@@ -1,4 +1,8 @@
+import { FaBarsProgress } from "react-icons/fa6";
+import { GoOrganization } from "react-icons/go";
+import { ImProfile } from "react-icons/im";
 import { useState } from "react";
+import { BsCalendarDateFill } from "react-icons/bs";
 export default function Data() {
   const [editing, setEditing] = useState(false);
   const [status, setStatus] = useState("Applied");
@@ -8,16 +12,26 @@ export default function Data() {
         <thead className="bg-[#27272A] font-bold">
           <tr>
             <th className="border border-[#3f3f46] p-2 text-center">
-              Organization
+              <div className="flex gap-2 justify-center items-center">
+                <GoOrganization /> <p>Organization</p>
+              </div>
             </th>
             <th className="border border-[#3f3f46] p-2 text-center">
-              Position
+              <div className="flex gap-2 justify-center items-center">
+                <ImProfile />
+                <p>Position</p>
+              </div>
             </th>
             <th className="border border-[#3f3f46] p-2 text-center">
-              Current Status
+              <div className="flex gap-2 justify-center items-center">
+                <FaBarsProgress /> <p>Current Status</p>
+              </div>
             </th>
             <th className="border border-[#3f3f46] p-2 text-center">
-              Updated On
+              <div className="flex gap-2 justify-center items-center">
+                <BsCalendarDateFill />
+                <p>Updated On</p>
+              </div>
             </th>
           </tr>
         </thead>

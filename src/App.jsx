@@ -4,6 +4,7 @@ import Interviews from "./components/Pages/Interviews";
 import Landing from "./components/Pages/Landing";
 import Resumes from "./components/Pages/Resumes";
 import { BrowserRouter, Routes, Route } from "react-router";
+import Signup from "./components/Pages/Signup";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/contacts" element={<HRContacts />} />
           <Route path="/resumes" element={<Resumes />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </BrowserRouter>
     </div>
