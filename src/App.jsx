@@ -5,6 +5,8 @@ import Landing from "./components/Pages/Landing";
 import Resumes from "./components/Pages/Resumes";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Signup from "./components/Pages/Signup";
+import SignupOptions from "./components/reuseables/SignupPage/SignupOptions";
+import NewUser from "./components/reuseables/SignupPage/NewUser";
 
 export default function App() {
   return (
@@ -16,7 +18,10 @@ export default function App() {
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/contacts" element={<HRContacts />} />
           <Route path="/resumes" element={<Resumes />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="signup" element={<Signup />}>
+            <Route index element={<SignupOptions />} />
+            <Route path="newuser" element={<NewUser />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
