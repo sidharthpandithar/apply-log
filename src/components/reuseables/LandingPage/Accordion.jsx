@@ -10,9 +10,9 @@ export default function Accordion({ items }) {
     <div className="flex flex-col gap-3 w-1/2">
       {items.map((item, index) => {
         return (
-          <div className="flex flex-col text-justify gap-2" key={index}>
+          <div className="flex flex-col text-justify" key={index}>
             <div
-              className="text-2xl flex hover:cursor-pointer justify-between"
+              className="text-2xl flex hover:cursor-pointer justify-between gap-2"
               onClick={() => handleClick(index)}
             >
               {item.title}
@@ -24,7 +24,7 @@ export default function Accordion({ items }) {
             </div>
 
             {openIndex == index && (
-              <div className="text-xl text-zinc-300 bg-[#19294c] pr-5 pl-2 py-5 leading-8">
+              <div className="text-xl text-zinc-300 pr-5 pl-2 py-2 leading-8">
                 {item.content}
               </div>
             )}

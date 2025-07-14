@@ -233,7 +233,7 @@ const Particles = ({
   return (
     <div
       ref={containerRef}
-      className={`absolute z-5 w-full h-full bg-black ${className}`}
+      className={`absolute z-5 w-full h-full radial-gradient(circle, black 0%, transparent 100%) ${className}`}
     />
   );
 };

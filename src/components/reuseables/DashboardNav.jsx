@@ -18,7 +18,7 @@ export default function DashboardNav({
   ];
   return (
     <div className="EntireNav flex">
-      <div className="leftNav border-r border-black w-1/6 min-h-screen text-[#e5e5e5]">
+      <div className="leftNav border-r border-black bg-black/60 w-1/6 min-h-screen text-[#e5e5e5]">
         <div className="h-[12vh] w-full flex justify-center items-center ">
           <p className="text-3xl font-bold">ApplyLog</p>
         </div>
@@ -41,7 +41,7 @@ export default function DashboardNav({
         </div>
       </div>
       <div className="rightNav w-full flex flex-col min-h-screen">
-        <div className="rightNavTop border-black border-b flex h-[14vh] w-full justify-between">
+        <div className="rightNavTop border-black bg-black/60 border-b flex h-[14vh] w-full justify-between">
           <div className="flex gap-10 p-4 text-[#e5e5e5]">
             <div className="justify-center  flex flex-col">
               <p className="text-2xl">{title}</p>

@@ -36,8 +36,8 @@ export default function Signup() {
   return (
     <div className="relative outerContainer w-full h-screen flex ">
       <GridMotion items={interviewItems} />
-      <div className="leftContaienr w-2/3 h-full"></div>
-      <div className="rightContainer blur-mask z-10 w-1/3 h-fullflex ">
+      <div className="leftContaienr w-3/4 h-full"></div>
+      <div className="rightContainer blur-mask z-10 w-1/4 h-full flex ">
         <Outlet />
       </div>
     </div>

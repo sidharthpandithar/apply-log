@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function Nav() {
   return (
-    <div className="flex flex-col fixed w-full  backdrop-filter backdrop-blur-lg">
+    <div className="flex flex-col fixed w-full  backdrop-filter backdrop-blur-lg z-20">
       <div className="flex justify-between px-10 py-5">
         <p className="text-[#e5e5e5] font-bold text-2xl">ApplyLog </p>
         <div className="flex gap-5 justify-center items-center text-xl">
