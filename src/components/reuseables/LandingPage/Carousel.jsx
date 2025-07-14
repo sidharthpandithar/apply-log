@@ -17,6 +17,7 @@ const DEFAULT_ITEMS = [
       "Make use of our interactive dashboard to organize your interviews.",
     id: 1,
     icon: <IoCalendarSharp className="h-[16px] w-[16px] text-white" />,
+    displayimage: "/organize.png",
   },
   {
     title: "Upcoming Interviews",
@@ -24,6 +25,7 @@ const DEFAULT_ITEMS = [
       "View all your scheduled interviews with date, time, and company details.",
     id: 2,
     icon: <IoAlertOutline className="h-[16px] w-[16px] text-white" />,
+    displayimage: "/notification.png",
   },
   {
     title: "Interview Stages",
@@ -31,6 +33,7 @@ const DEFAULT_ITEMS = [
       "Track where you are in the hiring pipeline - from screening to final round.",
     id: 3,
     icon: <FiLayers className="h-[16px] w-[16px] text-white" />,
+    displayimage: "/layers.png",
   },
   {
     title: "Manage Resumes",
@@ -38,6 +41,7 @@ const DEFAULT_ITEMS = [
       "Manage and access your tailored resumes for different job roles.",
     id: 4,
     icon: <IoFileTrayFull className="h-[16px] w-[16px] text-white" />,
+    displayimage: "/resume.png",
   },
   {
     title: "Contact Management",
@@ -45,6 +49,7 @@ const DEFAULT_ITEMS = [
       "Save and organize contact details of recruiters and HR professionals.",
     id: 5,
     icon: <IoPersonCircleOutline className="h-[16px] w-[16px] text-white" />,
+    displayimage: "/contact.png",
   },
 ];
 
@@ -207,12 +212,23 @@ export default function Carousel({
               }}
               transition={effectiveTransition}
             >
-              <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}>
-                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060010]">
+              <div className={`${round ? "p-0 m-0" : "mb-4 p-5  absolute"}`}>
+                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full  bg-[#060010]">
                   {item.icon}
                 </span>
               </div>
-              <div className="p-5">
+              <div className="w-full h-full flex justify-center items-center">
+                <img
+                  src={item.displayimage}
+                  alt=""
+                  className="w-60"
+                  style={{
+                    filter:
+                      "invert(43%) sepia(65%) saturate(356%) hue-rotate(120deg)",
+                  }}
+                />
+              </div>
+              <div className="p-5 ">
                 <div className="mb-1 font-black text-lg text-white">
                   {item.title}
                 </div>
