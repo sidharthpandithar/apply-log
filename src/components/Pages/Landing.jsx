@@ -9,16 +9,19 @@ import TrueFocus from "../reuseables/LandingPage/TrueFocus";
 import ChromaGrid from "../reuseables/LandingPage/ChromaGrid";
 import BounceCards from "../reuseables/LandingPage/BounceCards";
 import LazySection from "../reuseables/LandingPage/LazySection";
+import ScrambledText from "../reuseables/LandingPage/ScrambledText";
 import LocomotiveScroll from "locomotive-scroll";
+import Footer from "../reuseables/LandingPage/Footer";
 
 export default function Landing() {
   const locomotiveScroll = new LocomotiveScroll();
   const images = [
-    "https://picsum.photos/400/400?grayscale",
-    "https://picsum.photos/500/500?grayscale",
-    "https://picsum.photos/600/600?grayscale",
-    "https://picsum.photos/700/700?grayscale",
-    "https://picsum.photos/300/300?grayscale",
+    "/resume_thumb_1.png",
+    "/resume_thumb_2.png",
+    "/resume_thumb_3.png",
+    "/resume_thumb_4.png",
+    "/resume_thumb_5.png",
+    "/resume_thumb_6.png",
   ];
 
   const transformStyles = [
@@ -207,7 +210,7 @@ export default function Landing() {
         </div>
       </LazySection>
       <LazySection>
-        <div className="SecondContainer text-justify bg-black/60 text-[#e5e5e5] flex gap-10 p-10 h-[40vh] items-center justify-center w-full">
+        <div className="SecondContainer text-justify bg-black/60 text-[#e5e5e5] flex gap-10 p-10 h-[40vh] items-center justify-center w-full hover:cursor-default">
           <p className="text-4xl leading-12">
             Get interview-ready with
             <span className="font-bold"> ApplyLog’s Interview Tracker</span>,
@@ -378,7 +381,7 @@ export default function Landing() {
           </LandingTextArea>
         </LazySection>
         <LandingImageArea>
-          <div style={{ height: "600px", position: "relative" }}>
+          <div style={{ height: "625px", position: "relative" }}>
             <ChromaGrid
               items={itemsChroma}
               radius={300}
@@ -391,12 +394,40 @@ export default function Landing() {
       </div>
 
       <LazySection>
-        <div className="SeventContainer text-[#e5e5e5] flex gap-8  p-10 h-full w-full bg-black/60">
-          <div className="LeftSection h-full w-2/3 flex flex-col gap-5">
-            <p className="text-4xl font-bold">Frequently Asked Questions</p>
+        <div className="SeventContainer text-[#e5e5e5] flex gap-8   h-full w-full bg-black/60">
+          <div className="LeftSection h-full w-1/2 flex flex-col gap-5 p-10">
+            <p className="text-4xl font-bold hover:cursor-default">
+              Frequently Asked Questions
+            </p>
             <Accordion items={items} />
           </div>
-          <div className="rightSection h-full flex-1"></div>
+          <div className="rightSection h-full w-full flex-1 flex hover:cursor-default text-center">
+            <ScrambledText
+              className="scrambled-text-demo"
+              radius={30}
+              duration={1.2}
+              speed={0.5}
+              scrambleChars={":"}
+            >
+              <p className="text-base">
+                With powerful features like smart interview scheduling, document
+                storage, recruiter contact management, and insightful progress
+                metrics - ApplyLog ensures you never miss a deadline or lose
+                track of important details again.
+              </p>
+
+              <p className="p-4">Organize. Track. Succeed.</p>
+              <p className="text-base">
+                Track. Succeed. With ApplyLog, your next opportunity is just a
+                click away.
+              </p>
+            </ScrambledText>
+          </div>
+        </div>
+      </LazySection>
+      <LazySection>
+        <div className="footer flex gap-8 h-full w-full">
+          <Footer />
         </div>
       </LazySection>
     </>
