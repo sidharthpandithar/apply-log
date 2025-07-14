@@ -9,8 +9,10 @@ import TrueFocus from "../reuseables/LandingPage/TrueFocus";
 import ChromaGrid from "../reuseables/LandingPage/ChromaGrid";
 import BounceCards from "../reuseables/LandingPage/BounceCards";
 import LazySection from "../reuseables/LandingPage/LazySection";
+import LocomotiveScroll from "locomotive-scroll";
 
 export default function Landing() {
+  const locomotiveScroll = new LocomotiveScroll();
   const images = [
     "https://picsum.photos/400/400?grayscale",
     "https://picsum.photos/500/500?grayscale",
