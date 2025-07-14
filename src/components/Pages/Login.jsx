@@ -4,9 +4,8 @@ export default function Login() {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       <Particles />
-
-      <div className="absolute z-10 flex justify-end items-center h-full w-full text-white">
-        <div className="w-1/3 h-full relative blur-mask">
+      <div className="absolute z-10 flex right-0 items-center h-full w-1/4 text-white">
+        <div className="rightContainer blur-mask z-10 w-full h-full flex ">
           <LoginComponent />
         </div>
       </div>

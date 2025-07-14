@@ -1,8 +1,9 @@
 import Button from "../SignupPage/Button";
+import { Link } from "react-router";
 export default function LoginComponent() {
   return (
-    <div className="mainContent  w-full h-full flex flex-col justify-center items-center gap-8 text-[#e5e5e5]">
-      <div className="firstHalf flex flex-col items-center gap-4 w-full max-w-md">
+    <div className="mainContent w-full h-full flex flex-col gap-5 justify-center items-center text-[#e5e5e5]">
+      <div className="firstHalf flex flex-col items-center gap-4 w-full max-w-md ">
         <div className="flex items-center flex-col w-2/3 gap-4">
           <div className="flex flex-col gap-4 w-full">
             <div className="flex flex-col gap-2 ">
@@ -34,10 +35,10 @@ export default function LoginComponent() {
           <p>Forgot your password?</p>
         </div>
       </div>
-      <div className="secondHalf flex-col h-1/3 flex  w-full text-center text-[#e5e5e5]">
-        <div className="flex flex-col items-center gap-2 mt-6 text-sm">
+      <div className="secondHalf flex flex-col items-center gap-4 w-full max-w-md text-[#e5e5e5]">
+        <div className="flex flex-col items-center gap-2 mt-6 text-sm w-full">
           <p>Not a member yet?</p>
-          <Button text={"Sign up"} logovisibility={"hidden"} />
+          <Button text={"Sign up"} logovisibility={"hidden"} link={"/signup"} />
         </div>
       </div>
     </div>

@@ -123,6 +123,7 @@ export default function BounceCards({
           style={{
             boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
             transform: transformStyles[idx] || "none",
+            willChange: "transform, opacity",
           }}
           onMouseEnter={() => pushSiblings(idx)}
           onMouseLeave={resetSiblings}
@@ -131,6 +132,7 @@ export default function BounceCards({
             className="w-full h-full object-cover"
             src={src}
             alt={`card-${idx}`}
+            loading="eager"
           />
         </div>
       ))}

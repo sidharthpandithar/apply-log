@@ -94,9 +94,10 @@ const ChromaGrid = ({
           className="group relative flex flex-col w-[200px] rounded-[20px] overflow-hidden border-2 border-transparent transition-colors duration-300 cursor-pointer"
           style={{
             "--card-border": c.borderColor || "transparent",
-
             background: c.gradient,
             "--spotlight-color": "rgba(255,255,255,0.3)",
+            willChange: "transform, opacity",
+            transform: "translate3d(0, 0, 0)", // triggers GPU acceleration
           }}
         >
           <div

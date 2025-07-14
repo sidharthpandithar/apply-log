@@ -71,6 +71,20 @@ export default function Landing() {
       borderColor: "#3C3D37",
       gradient: "linear-gradient(180deg, #3C3D37, #000)",
     },
+    {
+      image: "/diego.jpg",
+      title: "Diego Ramos",
+      subtitle: "VertexEdge AI",
+      borderColor: "#3C3D37",
+      gradient: "linear-gradient(180deg, #3C3D37, #000)",
+    },
+    {
+      image: "/leila.jpg",
+      title: "Leila Farouk",
+      subtitle: "NimbusWare Labs",
+      borderColor: "#3C3D37",
+      gradient: "linear-gradient(180deg, #3C3D37, #000)",
+    },
   ];
 
   const items = [

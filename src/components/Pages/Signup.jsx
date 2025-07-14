@@ -1,7 +1,6 @@
-import Button from "../reuseables/SignupPage/Button";
 import GridMotion from "../reuseables/SignupPage/GridMotion";
-import SignupOptions from "../reuseables/SignupPage/SignupOptions";
 import { Outlet } from "react-router-dom";
+
 export default function Signup() {
   const interviewItems = [
     "Resume Review",
