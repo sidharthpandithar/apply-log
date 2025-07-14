@@ -5,8 +5,8 @@ import { FiLayers } from "react-icons/fi";
 
 import {
   IoCalendarSharp,
-  IoAlertOutline,
-  IoFileTrayFull,
+  IoNotificationsSharp,
+  IoDocumentText,
   IoPersonCircleOutline,
 } from "react-icons/io5";
 
@@ -24,7 +24,7 @@ const DEFAULT_ITEMS = [
     description:
       "View all your scheduled interviews with date, time, and company details.",
     id: 2,
-    icon: <IoAlertOutline className="h-[16px] w-[16px] text-white" />,
+    icon: <IoNotificationsSharp className="h-[16px] w-[16px] text-white" />,
     displayimage: "/notification.png",
   },
   {
@@ -40,7 +40,7 @@ const DEFAULT_ITEMS = [
     description:
       "Manage and access your tailored resumes for different job roles.",
     id: 4,
-    icon: <IoFileTrayFull className="h-[16px] w-[16px] text-white" />,
+    icon: <IoDocumentText className="h-[16px] w-[16px] text-white" />,
     displayimage: "/resume.png",
   },
   {
