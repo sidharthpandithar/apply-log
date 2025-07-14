@@ -211,7 +211,7 @@ export default function Landing() {
         </div>
       </LazySection>
       <LazySection>
-        <div className="SecondContainer text-justify bg-black/60 text-[#e5e5e5] flex gap-10 p-10 h-[40vh] items-center justify-center w-full hover:cursor-default">
+        <div className="SecondContainer text-justify bg-black/60 text-[#e5e5e5] flex gap-10 p-10 h-[60vh] items-center justify-center w-full hover:cursor-default">
           <p className="text-4xl leading-12">
             Get interview-ready with
             <span className="font-bold"> ApplyLog’s Interview Tracker</span>,

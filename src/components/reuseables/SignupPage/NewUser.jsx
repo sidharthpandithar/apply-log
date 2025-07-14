@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function NewUser() {
   return (
-    <div className="mainContent w-full h-full flex flex-col justify-center items-center gap-8 text-[#e5e5e5]">
+    <div className="mainContent w-full h-full flex flex-col justify-center items-center gap-8  text-[#e5e5e5]">
       <div className="flex flex-col items-center gap-6 w-full max-w-md">
         <div className="w-full flex flex-col gap-4 justify-center items-center">
           <div className="flex flex-col">
@@ -30,7 +30,7 @@ export default function NewUser() {
             />
           </div>
         </div>
-        <div className="flex flex-col w-full justify-center items-center gap-2 mt-5">
+        <div className="flex flex-col w-full  justify-center items-center gap-2 mt-5">
           <Button text={"Sign up"} logovisibility={"hidden"} />
           <div className="policySection text-center px-5 text-sm">
             <p>
