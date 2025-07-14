@@ -79,7 +79,7 @@ const ChromaGrid = ({
       ref={rootRef}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className={`relative w-full h-full flex flex-wrap justify-center items-start gap-3 ${className}`}
+      className={`relative w-full h-full flex flex-wrap justify-center items-start gap-3 backdrop-blur-2xl ${className}`}
       style={{
         "--r": `${radius}px`,
         "--x": "50%",

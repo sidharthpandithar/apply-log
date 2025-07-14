@@ -149,7 +149,7 @@ export default function Landing() {
       <LazySection>
         <div className="FirstContainer text-[#e5e5e5] flex gap-10 pl-10 pr-10 pt-10 h-full w-full mt-[76px]">
           <LandingTextArea>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8  w-full h-full">
               <div className="text-area  flex flex-col gap-3">
                 <div className="firstTop flex flex-col gap-3">
                   <p className="font-bold text-4xl leading-12">
@@ -181,8 +181,9 @@ export default function Landing() {
           </LandingTextArea>
           <LandingImageArea>
             <div
+              className="flex w-full h-full"
               style={{
-                height: "500px",
+                height: "650px",
                 position: "relative",
               }}
             >
@@ -381,7 +382,7 @@ export default function Landing() {
           </LandingTextArea>
         </LazySection>
         <LandingImageArea>
-          <div style={{ height: "625px", position: "relative" }}>
+          <div style={{ height: "615px", position: "relative" }}>
             <ChromaGrid
               items={itemsChroma}
               radius={300}
