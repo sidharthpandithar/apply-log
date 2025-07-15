@@ -172,7 +172,7 @@ export default function Carousel({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden md:w-[600px] w-[300px] p-4 ${
+      className={`relative overflow-hidden md:w-[600px] w-[300px] p-4  ${
         round
           ? "rounded-full border border-white"
           : "rounded-[24px] border border-[#222]"
@@ -182,7 +182,7 @@ export default function Carousel({
       }}
     >
       <motion.div
-        className="flex"
+        className="flex "
         drag="x"
         {...dragProps}
         style={{
@@ -211,7 +211,7 @@ export default function Carousel({
           return (
             <motion.div
               key={index}
-              className={`relative shrink-0 flex flex-col ${
+              className={`relative shrink-0 flex flex-col  ${
                 round
                   ? "items-center justify-center text-center bg-[#060010] border-0"
                   : "items-start justify-between bg-[#222] border border-[#222] rounded-[12px]"

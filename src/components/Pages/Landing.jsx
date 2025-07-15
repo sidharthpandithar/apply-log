@@ -222,8 +222,8 @@ export default function Landing() {
         </div>
       </LazySection>
       <LazySection>
-        <div className="ThirdContainer text-[#e5e5e5] md:flex md:gap-10 p-10 h-full w-full">
-          <LandingImageArea>
+        <div className="ThirdContainer text-[#e5e5e5] md:flex gap-10 p-10 h-full w-full">
+          <LandingImageArea className="h-[55vh] md:h-full md:pt-10">
             <div
               style={{
                 height: "600px",
@@ -240,23 +240,24 @@ export default function Landing() {
               />
             </div>
           </LandingImageArea>
-
           <LandingTextArea>
-            <div className="md:flex -mt-25 md:mt-0 h-full w-full flex-col gap-3">
-              <p className="md:text-4xl text-2xl leading-10 font-bold">
-                Organize your interview schedule
-              </p>
-              <div className="md:text-2xl md:leading-12 leading-8 text-justify">
-                <p>
-                  Easily access, view, and organize your interview schedule with
-                  ApplyLog's visual dashboard.
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-3">
+                <p className="md:text-4xl text-2xl font-bold md:leading-10">
+                  Organize your interview schedule
                 </p>
-                <p>
-                  Drag-and-drop job applications into the interview section when
-                  an interview is booked.
-                </p>
+                <div className="md:text-2xl text-base md:leading-12 leading-8 text-justify">
+                  <p>
+                    Easily access, view, and organize your interview schedule
+                    with ApplyLog's visual dashboard.
+                  </p>
+                  <p>
+                    Drag-and-drop job applications into the interview section
+                    when an interview is booked.
+                  </p>
+                </div>
               </div>
-              <div className="Button flex justify-end ">
+              <div className="flex justify-start">
                 <Button
                   buttontext={"Get Organized"}
                   color={`bg-[#a7c957]`}
@@ -356,13 +357,15 @@ export default function Landing() {
         </div>
       </LazySection>
 
-      <div className="SixthContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full">
+      <div className="SixthContainer text-[#e5e5e5] md:flex gap-10 p-10 h-full w-full">
         <LazySection>
           <LandingTextArea>
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-3">
-                <p className="text-4xl font-bold">Manage your contact list</p>
-                <div className="flex flex-col text-justify text-3xl leading-12">
+                <p className="md:text-4xl text-2xl font-bold">
+                  Manage your contact list
+                </p>
+                <div className="flex flex-col text-justify md:text-2xl md:leading-12 text-base leading-8">
                   <p>
                     When interviewing at countless companies, you’ll be
                     networking a lot.
@@ -385,7 +388,10 @@ export default function Landing() {
           </LandingTextArea>
         </LazySection>
         <LandingImageArea>
-          <div style={{ height: "615px", position: "relative" }}>
+          <div
+            className="hidden md:flex"
+            style={{ height: "615px", position: "relative" }}
+          >
             <ChromaGrid
               items={itemsChroma}
               radius={300}
@@ -398,14 +404,14 @@ export default function Landing() {
       </div>
 
       <LazySection>
-        <div className="SeventContainer text-[#e5e5e5] flex gap-8   h-full w-full bg-black/60">
-          <div className="LeftSection h-full w-1/2 flex flex-col gap-5 p-10">
-            <p className="text-4xl font-bold hover:cursor-default">
+        <div className="SeventhContainer text-[#e5e5e5] md:flex gap-8   h-full w-full bg-black/60">
+          <div className="LeftSection h-full md:w-1/2 flex flex-col gap-5 p-10">
+            <p className="md:text-4xl text-2xl font-bold hover:cursor-default">
               Frequently Asked Questions
             </p>
             <Accordion items={items} />
           </div>
-          <div className="rightSection h-full w-full flex-1 flex hover:cursor-default text-center">
+          <div className="rightSection h-full w-full flex-1 md:flex hidden hover:cursor-default text-center">
             <ScrambledText
               className="scrambled-text-demo"
               radius={30}
