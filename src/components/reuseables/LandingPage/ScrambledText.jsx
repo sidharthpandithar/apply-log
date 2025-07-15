@@ -67,7 +67,7 @@ const ScrambledText = ({
       className={`m-[7vw] max-w-[800px] font-mono text-[clamp(14px,4vw,32px)] text-white ${className}`}
       style={style}
     >
-      <p>{children}</p>
+      <div>{children}</div>
     </div>
   );
 };

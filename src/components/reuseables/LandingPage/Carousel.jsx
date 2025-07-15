@@ -60,7 +60,6 @@ const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
 export default function Carousel({
   items = DEFAULT_ITEMS,
-  baseWidth = 300,
   autoplay = false,
   autoplayDelay = 3000,
   pauseOnHover = false,
@@ -68,6 +67,20 @@ export default function Carousel({
   round = false,
   cardHeight = 400,
 }) {
+  const [baseWidth, setBaseWidth] = useState(300);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setBaseWidth(500); // md: and up
+      } else {
+        setBaseWidth(300); // sm and below
+      }
+    };
+
+    handleResize(); // Set initial size
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const containerPadding = 16;
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
@@ -159,13 +172,12 @@ export default function Carousel({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden p-4 ${
+      className={`relative overflow-hidden md:w-[600px] w-[300px] p-4 ${
         round
           ? "rounded-full border border-white"
           : "rounded-[24px] border border-[#222]"
       }`}
       style={{
-        width: `${baseWidth}px`,
         ...(round && { height: `${baseWidth}px` }),
       }}
     >

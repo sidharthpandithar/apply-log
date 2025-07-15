@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import GradientText from "../LandingPage/GradientText";
 
 const GridMotion = ({ items = [], gradientColor = "black" }) => {
   const gridRef = useRef(null);
@@ -84,14 +83,7 @@ const GridMotion = ({ items = [], gradientColor = "black" }) => {
                           style={{ backgroundImage: `url(${content})` }}
                         ></div>
                       ) : (
-                        <GradientText
-                          colors={["#0f766e", "#84cc16", "#38bdf8"]}
-                          animationSpeed={3}
-                          showBorder={false}
-                          className="custom-class"
-                        >
-                          <div className="p-4 text-center z-[1]">{content}</div>
-                        </GradientText>
+                        <div className="p-4 text-center z-[1] ">{content}</div>
                       )}
                     </div>
                   </div>

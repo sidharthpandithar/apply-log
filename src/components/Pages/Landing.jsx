@@ -147,17 +147,17 @@ export default function Landing() {
     <>
       <Nav />
       <LazySection>
-        <div className="FirstContainer text-[#e5e5e5] flex gap-10 pl-10 pr-10 pt-10 h-full w-full mt-[76px]">
+        <div className="FirstContainer text-[#e5e5e5] md:flex gap-10 pl-10 pr-10 pt-10 h-full w-full mt-[76px]">
           <LandingTextArea>
             <div className="flex flex-col gap-8  w-full h-full">
               <div className="text-area  flex flex-col gap-3">
                 <div className="firstTop flex flex-col gap-3">
-                  <p className="font-bold text-4xl leading-12">
+                  <p className="font-bold md:text-4xl md:leading-12 text-2xl leading-10">
                     An easy way to track and manage your upcoming interviews
                   </p>
                 </div>
                 <div className="Middle flex gap-3">
-                  <div className="text-2xl text-justify flex flex-col gap-2 leading-10">
+                  <div className="md:text-2xl text-justify flex flex-col gap-2 md:leading-10 leading-8">
                     <p>
                       Staying organized during the interview process will ensure
                       you get hired faster.
@@ -181,9 +181,8 @@ export default function Landing() {
           </LandingTextArea>
           <LandingImageArea>
             <div
-              className="flex w-full h-full"
+              className="flex w-full md:h-[650px] h-[380px]"
               style={{
-                height: "650px",
                 position: "relative",
               }}
             >
@@ -211,8 +210,8 @@ export default function Landing() {
         </div>
       </LazySection>
       <LazySection>
-        <div className="SecondContainer text-justify bg-black/60 text-[#e5e5e5] flex gap-10 p-10 h-[60vh] items-center justify-center w-full hover:cursor-default">
-          <p className="text-4xl leading-12">
+        <div className="SecondContainer text-justify bg-black/60 text-[#e5e5e5] md:flex mt-10 gap-10 p-10 md:h-[60vh] items-center justify-center w-full hover:cursor-default">
+          <p className="md:text-4xl md:leading-13 leading-10">
             Get interview-ready with
             <span className="font-bold"> ApplyLog’s Interview Tracker</span>,
             designed to help you seamlessly organize and manage every step of
@@ -223,16 +222,15 @@ export default function Landing() {
         </div>
       </LazySection>
       <LazySection>
-        <div className="ThirdContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full">
+        <div className="ThirdContainer text-[#e5e5e5] md:flex md:gap-10 p-10 h-full w-full">
           <LandingImageArea>
             <div
               style={{
-                height: "300px",
+                height: "600px",
                 position: "relative",
               }}
             >
               <Carousel
-                baseWidth={500}
                 autoplay={true}
                 autoplayDelay={3000}
                 pauseOnHover={true}
@@ -242,12 +240,13 @@ export default function Landing() {
               />
             </div>
           </LandingImageArea>
+
           <LandingTextArea>
-            <div className="flex flex-col gap-3">
-              <p className="text-4xl font-bold">
+            <div className="md:flex -mt-25 md:mt-0 h-full w-full flex-col gap-3">
+              <p className="md:text-4xl text-2xl leading-10 font-bold">
                 Organize your interview schedule
               </p>
-              <div className="text-3xl leading-12 text-justify">
+              <div className="md:text-2xl md:leading-12 leading-8 text-justify">
                 <p>
                   Easily access, view, and organize your interview schedule with
                   ApplyLog's visual dashboard.
@@ -270,12 +269,14 @@ export default function Landing() {
         </div>
       </LazySection>
       <LazySection>
-        <div className="FourthContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full">
+        <div className="FourthContainer text-[#e5e5e5] md:flex gap-10 p-10 h-full w-full">
           <LandingTextArea>
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-3">
-                <p className="text-4xl font-bold"> Stay on top of dates</p>
-                <div className="text-3xl leading-12 text-justify">
+                <p className="md:text-4xl text-2xl font-bold md:leading-10">
+                  Stay on top of dates
+                </p>
+                <div className="md:text-2xl text-base md:leading-12 leading-8 text-justify">
                   <p>
                     From deadlines and application dates to interview schedules,
                     ApplyLog keeps track of your entire job search timeline in
@@ -298,23 +299,25 @@ export default function Landing() {
               </div>
             </div>
           </LandingTextArea>
-          <LandingImageArea>
-            <TrueFocus
-              sentence="Add Track Remind"
-              manualMode={true}
-              blurAmount={5}
-              borderColor="blue"
-              animationDuration={0.5}
-              pauseBetweenAnimations={1}
-            />
-          </LandingImageArea>
+          <div className="hidden md:block flex-1">
+            <LandingImageArea>
+              <TrueFocus
+                sentence="Add Track Remind"
+                manualMode={true}
+                blurAmount={5}
+                borderColor="blue"
+                animationDuration={0.5}
+                pauseBetweenAnimations={1}
+              />
+            </LandingImageArea>
+          </div>
         </div>
       </LazySection>
       <LazySection>
-        <div className="FifthContainer text-[#e5e5e5] flex gap-10 p-10 h-full w-full">
+        <div className="FifthContainer text-[#e5e5e5] md:flex gap-10 p-10 h-full w-full">
           <LandingImageArea>
             <BounceCards
-              className="custom-bounceCards"
+              className="custom-bounceCards hidden md:flex"
               images={images}
               containerWidth={700}
               containerHeight={450}
@@ -328,10 +331,10 @@ export default function Landing() {
           <LandingTextArea>
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-3">
-                <p className="text-4xl font-bold">
+                <p className="md:text-4xl text-2xl font-bold">
                   Store all documents securely
                 </p>
-                <div className="text-3xl leading-12 text-justify">
+                <div className="md:text-2xl md:leading-12 leading-8 text-justify">
                   <p>
                     Tailored your resume for a specific job? Conveniently store
                     tailored resumes, cover letters and any other documents per
