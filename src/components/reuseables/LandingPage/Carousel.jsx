@@ -71,7 +71,7 @@ export default function Carousel({
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
-        setBaseWidth(500); // md: and up
+        setBaseWidth(600); // md: and up
       } else {
         setBaseWidth(300); // sm and below
       }
