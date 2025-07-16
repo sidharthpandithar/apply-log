@@ -1,5 +1,4 @@
 import Button from "./Button";
-import { Link } from "react-router";
 export default function SignupOptions() {
   return (
     <div className="mainContent  w-full h-full flex flex-col gap-5 justify-center items-center">

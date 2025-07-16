@@ -1,6 +1,13 @@
+import { useState } from "react";
 import Button from "./Button";
-
+const API = import.meta.env.VITE_API_BASE_URL;
 export default function NewUser() {
+  const [userdata, setUserdata] = useState({
+    email: "",
+    password: "",
+    repassword: "",
+  });
+
   return (
     <div className="mainContent w-full h-full flex flex-col justify-center items-center gap-8  text-[#e5e5e5]">
       <div className="flex flex-col items-center gap-6 w-full max-w-md">
