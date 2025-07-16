@@ -87,7 +87,15 @@ export default function DashboardNav({
               )}
             </AnimatePresence>
           </div>
-          <div className="flex gap-10 p-4 md:w-3/4 w-[60%] text-[#e5e5e5]">
+          <div className="md:flex hidden gap-10 p-4 md:w-3/4 w-[60%] text-[#e5e5e5]">
+            <div className="justify-center  flex flex-col">
+              <p className="md:text-2xl text-xl">{title}</p>
+              <p className="text-zinc-300 md:text-base text-sm">
+                {description}
+              </p>
+            </div>
+          </div>
+          <div className="md:hidden flex gap-10 p-4 md:w-3/4 w-[60%] text-[#e5e5e5]">
             <div className="justify-center  flex flex-col">
               <p className="md:text-2xl text-xl">{title}</p>
               <p className="text-zinc-300 md:text-base text-sm">

@@ -1,8 +1,11 @@
 import { FaSearch } from "react-icons/fa";
 import NoData from "./NoData";
 import Data from "./Data";
+import AddContact from "./AddContact";
+import { useState } from "react";
 
 export default function HRContactsContent() {
+  const [popup, setPopup] = useState(false);
   return (
     <div className="fullContent flex flex-col w-full h-full">
       <div className="searchContainer w-full h-1/8 flex  justify-between">
@@ -18,7 +21,7 @@ export default function HRContactsContent() {
         </div>
       </div>
       <div className="HRContactsContainer flex flex-col gap-1   p-8 w-full h-full">
-        <NoData />
+        {popup && <AddContact />}
       </div>
     </div>
   );

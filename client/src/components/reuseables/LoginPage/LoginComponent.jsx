@@ -1,14 +1,61 @@
 import Button from "../SignupPage/Button";
 import { Link } from "react-router";
+import axios from "axios";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router";
+
+const API = import.meta.env.VITE_API_BASE_URL;
 export default function LoginComponent() {
+  const navigate = useNavigate();
+  const [userdata, setUserdata] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        `${API}/api/users/login`,
+        {
+          email: userdata.email,
+          password: userdata.password,
+        },
+        { withCredentials: true }
+      );
+
+      console.log("User Logged in:", res.data);
+
+      localStorage.setItem("user", JSON.stringify(res.data));
+      navigate("/dashboard");
+      window.location.reload();
+    } catch (err) {
+      console.error("Login failed", err.response?.data || err.message);
+    }
+  };
+
+  const handleChange = (e) => {
+    setUserdata((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const formRef = useRef();
   return (
     <div className="mainContent w-full h-full flex flex-col gap-5 justify-center items-center text-[#e5e5e5]">
       <div className="firstHalf flex flex-col items-center gap-4 w-full max-w-md ">
         <div className="flex items-center flex-col w-2/3 gap-4">
-          <div className="flex flex-col gap-4 w-full">
+          <form
+            onSubmit={handleSubmit}
+            ref={formRef}
+            action=""
+            className="flex flex-col gap-4 w-full"
+          >
             <div className="flex flex-col gap-2 ">
               <label className="pl-2">Email Address</label>
               <input
+                id="email"
+                value={userdata.email}
+                onChange={handleChange}
                 type="email"
                 className="w-full h-[4vh] border rounded-md px-4"
                 placeholder="Enter your email"
@@ -19,9 +66,19 @@ export default function LoginComponent() {
               <input
                 type="password"
                 className="w-full h-[4vh] border rounded-md px-4"
-                placeholder="Enter a password"
+                placeholder="Enter your password"
+                value={userdata.password}
+                onChange={handleChange}
+                id="password"
               />
             </div>
+          </form>
+          <div className="w-full flex justify-center items-center">
+            <Button
+              formRef={formRef}
+              logovisibility={"hidden"}
+              text={"Log in"}
+            />
           </div>
           <div className="flex w-2/3 gap-4 justify-center items-center">
             <hr className="flex-grow border-t border-[#e5e5e5]" />
