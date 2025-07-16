@@ -12,6 +12,7 @@ import LazySection from "../reuseables/LandingPage/LazySection";
 import ScrambledText from "../reuseables/LandingPage/ScrambledText";
 import LocomotiveScroll from "locomotive-scroll";
 import Footer from "../reuseables/LandingPage/Footer";
+import GridLayoutMob from "../reuseables/LandingPage/GridLayoutMob";
 
 export default function Landing() {
   const locomotiveScroll = new LocomotiveScroll();
@@ -35,7 +36,7 @@ export default function Landing() {
     {
       image: "/liam.jpg",
       title: "Liam Anderson",
-      subtitle: "GlobalNova Technologies",
+      subtitle: "GlobalNova Tech",
       borderColor: "#3C3D37",
       gradient: "linear-gradient(145deg, #3C3D37, #000)",
     },
@@ -315,13 +316,12 @@ export default function Landing() {
         </div>
       </LazySection>
       <LazySection>
-        <div className="FifthContainer text-[#e5e5e5] md:flex gap-10 p-10 h-full w-full">
+        <div className="FifthContainer text-[#e5e5e5] md:flex gap-10 py-10 px-5 h-full w-full">
           <LandingImageArea>
             <BounceCards
-              className="custom-bounceCards hidden md:flex"
+              className="custom-bounceCards md:flex"
               images={images}
               containerWidth={700}
-              containerHeight={450}
               animationDelay={1}
               animationStagger={0.08}
               easeType="elastic.out(1, 0.5)"
@@ -389,7 +389,7 @@ export default function Landing() {
         </LazySection>
         <LandingImageArea>
           <div
-            className="hidden md:flex"
+            className="md:flex hidden"
             style={{ height: "615px", position: "relative" }}
           >
             <ChromaGrid
@@ -399,6 +399,9 @@ export default function Landing() {
               fadeOut={0.6}
               ease="power3.out"
             />
+          </div>
+          <div className="md:hidden mt-10 flex h-[100%] w-full">
+            <GridLayoutMob contacts={itemsChroma} />
           </div>
         </LandingImageArea>
       </div>

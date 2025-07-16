@@ -17,8 +17,8 @@ export default function DashboardNav({
     { text: "HR Contacts", logo: <IoIosContacts />, link: "/contacts" },
   ];
   return (
-    <div className="EntireNav flex">
-      <div className="leftNav border-r border-black bg-black/60 w-1/6 min-h-screen text-[#e5e5e5]">
+    <div className="EntireNav min-h-screen flex">
+      <div className="leftNav md:inline hidden border-r border-black bg-black/60 w-1/6 min-h-screen text-[#e5e5e5]">
         <div className="h-[12vh] w-full flex justify-center items-center ">
           <p className="text-3xl font-bold">ApplyLog</p>
         </div>
@@ -42,14 +42,16 @@ export default function DashboardNav({
       </div>
       <div className="rightNav w-full flex flex-col min-h-screen">
         <div className="rightNavTop border-black bg-black/60 border-b flex h-[14vh] w-full justify-between">
-          <div className="flex gap-10 p-4 text-[#e5e5e5]">
+          <div className="flex gap-10 p-4 md:w-3/4 w-[60%] text-[#e5e5e5]">
             <div className="justify-center  flex flex-col">
-              <p className="text-2xl">{title}</p>
-              <p className="text-zinc-300">{description}</p>
+              <p className="md:text-2xl text-xl">{title}</p>
+              <p className="text-zinc-300 md:text-base text-sm">
+                {description}
+              </p>
             </div>
           </div>
-          <div className="p-4 flex justify-center items-center">
-            <button className="flex justify-center bg-[#a7c957] items-center gap-2 rounded-md py-1 px-2 pr-4">
+          <div className="p-4 flex flex-1 justify-end items-center">
+            <button className="flex justify-center bg-[#a7c957] text-sm md:text-base items-center gap-2 rounded-md py-1 px-2 pr-4">
               <MdAdd /> {buttonText}
             </button>
           </div>
