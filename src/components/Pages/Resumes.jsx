@@ -7,6 +7,7 @@ export default function Resumes() {
         buttonText={"Upload Resume"}
         title={"Resumes"}
         description={"Manage your resume versions for different job profiles"}
+        mobdescription={"Manage all your resume versions"}
       >
         <ResumeContent />
       </DashboardNav>

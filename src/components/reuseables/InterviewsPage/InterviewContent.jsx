@@ -14,8 +14,12 @@ export default function InterviewContent() {
             />
             <FaSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-zinc-500" />
           </div>
-          <div className="dropDownflex-1 flex h-10 w-1/4 justify-center items-center border border-zinc-500 rounded-md text-zinc-500">
-            <select name="interviews" className="w-full  h-10" id="interviews">
+          <div className="dropDownflex-1 flex h-10 md:w-1/5 w-1/2 justify-center items-center border border-zinc-500 rounded-md text-zinc-500">
+            <select
+              name="interviews"
+              className="w-full  h-10 md:text-base text-sm"
+              id="interviews"
+            >
               <option value="all">All Interviews</option>
               <option value="applied">Applied</option>
               <option value="phone">Phone Screen</option>
@@ -28,7 +32,7 @@ export default function InterviewContent() {
         </div>
       </div>
       <div className="interviewContainer flex w-full h-full p-4">
-        <Data />
+        <NoData />
       </div>
     </div>
   );

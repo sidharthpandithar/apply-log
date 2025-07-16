@@ -8,6 +8,7 @@ export default function HRContacts() {
         buttonText={"Add Contact"}
         title={"HR Contacts"}
         description={"Manage your professional contacts and HR connections"}
+        mobdescription={"Manage your professional contacts"}
       >
         <HRContactsContent />
       </DashboardNav>

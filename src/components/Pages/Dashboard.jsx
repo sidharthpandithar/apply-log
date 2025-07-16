@@ -7,6 +7,7 @@ export default function Dashboard() {
       buttonText={"Add Interview"}
       title={"Dashboard"}
       description={"Welcome back! Here's your interview overview."}
+      mobdescription={"Welcome back! Here's your interview overview."}
     >
       <DashboardContent />
     </DashboardNav>

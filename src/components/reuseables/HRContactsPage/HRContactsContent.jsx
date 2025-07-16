@@ -18,7 +18,7 @@ export default function HRContactsContent() {
         </div>
       </div>
       <div className="HRContactsContainer flex flex-col gap-1   p-8 w-full h-full">
-        <Data />
+        <NoData />
       </div>
     </div>
   );

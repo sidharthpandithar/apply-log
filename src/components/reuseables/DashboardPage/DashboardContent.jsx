@@ -3,8 +3,9 @@ import { FaLocationArrow } from "react-icons/fa";
 import { IoIosMailOpen } from "react-icons/io";
 import { ImCross } from "react-icons/im";
 import { SiStagetimer } from "react-icons/si";
-import { LuBuilding } from "react-icons/lu";
+
 import NoData from "./NoData";
+import NoDataInterview from "./NoDataInterview";
 
 export default function DashboardContent() {
   const firstContainer = [
@@ -50,17 +51,7 @@ export default function DashboardContent() {
               </button>
             </div>
             <div className="recentInterviewsContent rounded-b-md bg-zinc-800 flex flex-col w-full md:h-full h-[50vh] justify-center items-center">
-              <div className="noInterview flex flex-col gap-5">
-                <div className="flex justify-center items-center w-full h-full text-9xl text-zinc-400">
-                  <LuBuilding />
-                </div>
-                <div className="text-center flex flex-col items-center gap-3">
-                  <p className="text-zinc-300 text-xl">No interviews yet</p>
-                  <p className="text-zinc-300">
-                    Add your first interview to get started
-                  </p>
-                </div>
-              </div>
+              <NoDataInterview />
             </div>
           </div>
         </div>
@@ -69,7 +60,7 @@ export default function DashboardContent() {
             <div className="titleSection w-full md:h-1/5 bg-zinc-900 rounded-t-md border-b border-black flex justify-between items-center p-7">
               <p className="text-xl font-bold">Upcoming Interviews</p>
             </div>
-            <div className="upcomingInterviewsContent rounded-b-md bg-zinc-800 flex flex-col w-full md:h-full h-[50vh] justify-center items-center">
+            <div className="upcomingInterviewsContent rounded-b-md bg-zinc-800 flex flex-col w-full md:h-full h-[50vh] mb-5 justify-center items-center">
               <NoData />
             </div>
           </div>
