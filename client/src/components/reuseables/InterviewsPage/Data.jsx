@@ -1,72 +1,71 @@
-import { FaBarsProgress } from "react-icons/fa6";
-import { GoOrganization } from "react-icons/go";
-import { ImProfile } from "react-icons/im";
 import { useState } from "react";
-import { BsCalendarDateFill } from "react-icons/bs";
-export default function Data() {
-  const [editing, setEditing] = useState(false);
-  const [status, setStatus] = useState("Applied");
+import axios from "axios";
+
+const API = import.meta.env.VITE_API_BASE_URL;
+
+export default function Data({
+  company,
+  position,
+  status,
+  date,
+  id,
+  handleDelete,
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newStatus, setNewStatus] = useState(status);
+
+  const handleStatusChange = async (e) => {
+    const updatedStatus = e.target.value;
+    setNewStatus(updatedStatus);
+    setIsEditing(false);
+
+    try {
+      await axios.patch(
+        `${API}/api/interviews/update/${id}`,
+        { status: updatedStatus },
+        { withCredentials: true }
+      );
+      console.log("Status updated successfully");
+    } catch (error) {
+      console.error("Failed to update status:", error);
+    }
+  };
+
   return (
-    <div className="tableWrapper overflow-auto text-[#e5e5e5] w-full h-full">
-      <table className="table-auto w-full border-collapse border border-[#3f3f46]">
-        <thead className="bg-[#27272A] font-bold">
-          <tr>
-            <th className="border border-[#3f3f46] p-2 text-center">
-              <div className="flex gap-2 justify-center items-center">
-                <GoOrganization /> <p>Organization</p>
-              </div>
-            </th>
-            <th className="border border-[#3f3f46] p-2 text-center">
-              <div className="flex gap-2 justify-center items-center">
-                <ImProfile />
-                <p>Position</p>
-              </div>
-            </th>
-            <th className="border border-[#3f3f46] p-2 text-center">
-              <div className="flex gap-2 justify-center items-center">
-                <FaBarsProgress /> <p>Current Status</p>
-              </div>
-            </th>
-            <th className="border border-[#3f3f46] p-2 text-center">
-              <div className="flex gap-2 justify-center items-center">
-                <BsCalendarDateFill />
-                <p>Updated On</p>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="text-center">
-            <td className="border border-[#3f3f46] p-2">Amazon</td>
-            <td className="border border-[#3f3f46] p-2">SDE 1</td>
-            <td
-              className="border border-[#3f3f46] p-2"
-              onClick={() => setEditing(true)}
+    <tbody>
+      <tr className="text-center">
+        <td className="border border-[#3f3f46] p-2">{company}</td>
+        <td className="border border-[#3f3f46] p-2">{position}</td>
+        <td
+          className="border border-[#3f3f46] p-2 cursor-pointer"
+          onClick={() => setIsEditing(true)}
+        >
+          {isEditing ? (
+            <select
+              value={newStatus}
+              onChange={handleStatusChange}
+              className="bg-zinc-700 text-white p-1 rounded"
             >
-              {editing ? (
-                <select
-                  value={status}
-                  onChange={(e) => {
-                    setStatus(e.target.value);
-                    setEditing(false);
-                  }}
-                  className="bg-zinc-800 text-white rounded p-2"
-                >
-                  <option>Applied</option>
-                  <option>Phone Screen</option>
-                  <option>Technical Round</option>
-                  <option>Final Interview</option>
-                  <option>Offered</option>
-                  <option>Rejected</option>
-                </select>
-              ) : (
-                <span className="cursor-pointer">{status}</span>
-              )}
-            </td>
-            <td className="border border-[#3f3f46] p-2">13/07/2025</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+              <option value="Applied">Applied</option>
+              <option value="Phone Screening">Phone Screening</option>
+              <option value="Technical">Technical</option>
+              <option value="Final Interview">Final Interview</option>
+              <option value="Offered">Offered</option>
+              <option value="Rejected">Rejected</option>
+              <option value="Accepted">Accepted</option>
+            </select>
+          ) : (
+            newStatus
+          )}
+        </td>
+        <td className="border border-[#3f3f46] p-2">{date}</td>
+        <td
+          onClick={() => handleDelete(id)}
+          className="border border-[#3f3f46] p-2"
+        >
+          Delete
+        </td>
+      </tr>
+    </tbody>
   );
 }

@@ -14,7 +14,7 @@ const interviewSchema = new mongoose.Schema({
       "Applied",
       "Phone Screening",
       "Technical",
-      "Final",
+      "Final Interview",
       "Offered",
       "Rejected",
       "Accepted",
