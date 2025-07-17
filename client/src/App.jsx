@@ -8,24 +8,27 @@ import Signup from "./components/Pages/Signup";
 import SignupOptions from "./components/reuseables/SignupPage/SignupOptions";
 import NewUser from "./components/reuseables/SignupPage/NewUser";
 import Login from "./components/Pages/Login";
+import { PopupProvider } from "./contexts/PopupContext";
 
 export default function App() {
   return (
-    <div className="overflow-hidden flex-col flex bg-gradient-to-r from-neutral-900  to-neutral-800 min-h-screen w-full">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/interviews" element={<Interviews />} />
-          <Route path="/contacts" element={<HRContacts />} />
-          <Route path="/resumes" element={<Resumes />} />
-          <Route path="signup" element={<Signup />}>
-            <Route index element={<SignupOptions />} />
-            <Route path="newuser" element={<NewUser />} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <PopupProvider>
+      <div className="overflow-hidden flex-col flex bg-gradient-to-r from-neutral-900  to-neutral-800 min-h-screen w-full">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/interviews" element={<Interviews />} />
+            <Route path="/contacts" element={<HRContacts />} />
+            <Route path="/resumes" element={<Resumes />} />
+            <Route path="signup" element={<Signup />}>
+              <Route index element={<SignupOptions />} />
+              <Route path="newuser" element={<NewUser />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </PopupProvider>
   );
 }

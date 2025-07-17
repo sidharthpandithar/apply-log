@@ -3,11 +3,15 @@ import { FaLocationArrow } from "react-icons/fa";
 import { IoIosMailOpen } from "react-icons/io";
 import { ImCross } from "react-icons/im";
 import { SiStagetimer } from "react-icons/si";
+import AddInterview from "./AddInterview";
+import { useContext } from "react";
+import { PopupContext } from "../../../contexts/PopupContext";
 
 import NoData from "./NoData";
 import NoDataInterview from "./NoDataInterview";
 
 export default function DashboardContent() {
+  const { popup } = useContext(PopupContext);
   const firstContainer = [
     {
       Logo: <FaLocationArrow />,
@@ -32,12 +36,14 @@ export default function DashboardContent() {
   return (
     <div className="fullContainer w-full h-full  flex flex-col">
       <div className="firstContainer text-[#e5e5e5] pt-8 w-full md:h-1/5 md:flex grid grid-cols-2 gap-4 p-4 justify-around items-center">
+        {popup && <AddInterview />}
         {firstContainer.map((item, index) => (
           <DashboardBox
             Logo={item.Logo}
             text={item.text}
             number={item.number}
             bgcolor={item.bgcolor}
+            key={index}
           />
         ))}
       </div>

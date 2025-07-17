@@ -1,7 +1,11 @@
 import { FaSearch } from "react-icons/fa";
 import NoData from "./NoData";
 import Data from "./Data";
+import { PopupContext } from "../../../contexts/PopupContext";
+import { useContext } from "react";
+import AddInterview from "./AddInterview";
 export default function InterviewContent() {
+  const { popup, setPopup } = useContext(PopupContext);
   return (
     <div className="fullContent flex flex-col w-full h-full">
       <div className="searchContainer w-full h-1/8 flex  justify-between">
@@ -31,7 +35,8 @@ export default function InterviewContent() {
           </div>
         </div>
       </div>
-      <div className="interviewContainer flex w-full h-full p-4">
+      <div className="interviewContainer flex w-full h-full">
+        {popup && <AddInterview />}
         <NoData />
       </div>
     </div>

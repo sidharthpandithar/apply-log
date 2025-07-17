@@ -5,8 +5,9 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { IoIosContacts } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink, Link } from "react-router";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PopupContext } from "../../contexts/PopupContext";
 
 export default function DashboardNav({
   children,
@@ -16,6 +17,8 @@ export default function DashboardNav({
   mobdescription,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { popup, setPopup } = useContext(PopupContext);
+
   const nav_items = [
     { text: "Dashboard", logo: <FaChartBar />, link: "/dashboard" },
     { text: "Interviews", logo: <SlCalender />, link: "/interviews" },
@@ -104,7 +107,10 @@ export default function DashboardNav({
             </div>
           </div>
           <div className="p-4 flex flex-1 justify-end items-center">
-            <button className="flex justify-center bg-[#a7c957] text-sm md:text-base items-center gap-2 rounded-md py-1 px-2 pr-4">
+            <button
+              onClick={() => setPopup(!popup)}
+              className="flex justify-center bg-[#a7c957] text-sm md:text-base items-center gap-2 rounded-md py-1 px-2 pr-4"
+            >
               <MdAdd /> {buttonText}
             </button>
           </div>

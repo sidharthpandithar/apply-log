@@ -3,27 +3,16 @@ import { MdAdd } from "react-icons/md";
 import { useContext } from "react";
 import { PopupContext } from "../../../contexts/PopupContext";
 
-export default function AddContact() {
+export default function AddInterview() {
   const { popup, setPopup } = useContext(PopupContext);
   return (
-    <div className="w-full h-full flex justify-center md:items-center items-start">
-      <div className="md:w-[80%] w-full md:h-[80%] h-[60%] md:p-8 rounded-md bg-zinc-950 flex flex-col items-center">
+    <div className="w-full fixed   md:bottom-10 md:left-25 z-9 left-10 mt-10 h-full flex  md:justify-center md:items-center  items-start">
+      <div className="md:w-[60%] w-[80%] md:h-[40%] h-[30%] md:p-8 rounded-md bg-zinc-950 flex flex-col items-center ">
         <div className="flex flex-col w-full h-full md:border-zinc-800 rounded-md border  justify-start md:justify-center items-center">
           <form
             className="flex flex-col gap-5 md:gap-7 md:w-2/3  py-5 md:justify-center items-center"
             action=""
           >
-            <div className="flex text-[#e5e5e5] w-full justify-between px-5 items-center gap-3">
-              <label htmlFor="name" className="text-base md:text-xl">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="border md:w-1/3 w-1/2 pl-2 py-1 rounded-md"
-                placeholder="Contact Name"
-              />
-            </div>
             <div className="flex text-[#e5e5e5] w-full justify-between px-5 items-center gap-3">
               <label htmlFor="organization" className="text-base md:text-xl">
                 Organization
@@ -32,40 +21,29 @@ export default function AddContact() {
                 type="text"
                 id="organization"
                 className="border md:w-1/3 w-1/2 pl-2 py-1 rounded-md"
-                placeholder="Organization Name"
+                placeholder="Organization"
               />
             </div>
             <div className="flex text-[#e5e5e5] w-full justify-between px-5 items-center gap-3">
-              <label htmlFor="email" className="text-base md:text-xl">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="border md:w-1/3 w-1/2 pl-2 py-1 rounded-md"
-                placeholder="Email address"
-              />
-            </div>
-            <div className="flex text-[#e5e5e5] w-full justify-between px-5 items-center gap-3">
-              <label htmlFor="phone" className="text-base md:text-xl">
-                Phone Number
+              <label htmlFor="position" className="text-base md:text-xl">
+                Position
               </label>
               <input
                 type="text"
-                id="phone"
+                id="position"
                 className="border md:w-1/3 w-1/2 pl-2 py-1 rounded-md"
-                placeholder="Phone number"
+                placeholder="Position"
               />
             </div>
             <div className="flex text-[#e5e5e5] w-full justify-between px-5 items-center gap-3">
-              <label htmlFor="whatsapp" className="text-base md:text-xl">
-                Whatsapp Number
+              <label htmlFor="date" className="text-base md:text-xl">
+                Date
               </label>
               <input
-                type="text"
-                id="whatsapp"
+                type="date"
+                id="date"
                 className="border md:w-1/3 w-1/2 pl-2 py-1 rounded-md"
-                placeholder="Whatsapp Number"
+                placeholder="Date"
               />
             </div>
           </form>
