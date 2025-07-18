@@ -76,7 +76,7 @@ export default function DashboardContent() {
   const firstContainer = [
     {
       Logo: <FaLocationArrow />,
-      text: "Total Applications",
+      text: "Applications",
       number: totalInterviews,
       bgcolor: "bg-sky-700",
     },

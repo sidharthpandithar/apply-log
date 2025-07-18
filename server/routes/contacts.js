@@ -59,6 +59,31 @@ router.post("/add", verifyToken, async (req, res) => {
   }
 });
 
+router.delete("/delete/:id", verifyToken, async (req, res) => {
+  try {
+    const contactId = req.params.id;
+    const userId = req.user.id;
+
+    // Ensure the interview belongs to the user
+    const contact = await Contact.findOneAndDelete({
+      _id: contactId,
+      userId,
+    });
+
+    if (!contact) {
+      return res
+        .status(404)
+        .json({ message: "Contact not found or unauthorized" });
+    }
+
+    return res.status(200).json({ message: "Contact deleted successfully" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: "Server error", error: err.message });
+  }
+});
+
 router.patch("/update/:id", verifyToken, async (req, res) => {
   try {
     const contactId = req.params.id;
