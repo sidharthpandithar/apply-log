@@ -15,6 +15,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var interviewsRouter = require("./routes/interviews");
 var contactsRouter = require("./routes/contacts");
+var resumesRouter = require("./routes/resumes");
 
 var app = express();
 
@@ -38,5 +39,7 @@ app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/interviews", interviewsRouter);
 app.use("/api/contacts", contactsRouter);
+app.use("/api/resumes", resumesRouter);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 module.exports = app;

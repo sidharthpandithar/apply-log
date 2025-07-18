@@ -5,6 +5,7 @@ const resumeSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  title: String,
   filename: String,
   fileUrl: String,
   createdAt: {

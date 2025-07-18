@@ -45,7 +45,7 @@ export default function HRContactsContent() {
 
     fetchContacts();
   }, []);
-
+  console.log(contacts);
   const { popup } = useContext(PopupContext);
   return (
     <div className="fullContent flex flex-col w-full h-full">
@@ -68,7 +68,7 @@ export default function HRContactsContent() {
           <NoData />
         </div>
       )}
-      {!contacts.length === 0 && (
+      {contacts.length !== 0 && (
         <div className="HRContactsContainer flex flex-col gap-1   p-8 w-full h-full">
           <div className="tableWrapper overflow-auto text-[#e5e5e5] w-full h-full">
             <table className="table-auto w-full border-collapse border border-[#3f3f46]">
