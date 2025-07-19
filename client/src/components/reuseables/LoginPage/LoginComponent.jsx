@@ -28,6 +28,7 @@ export default function LoginComponent() {
       console.log("User Logged in:", res.data);
 
       localStorage.setItem("user", JSON.stringify(res.data));
+      localStorage.setItem("token", res.data.token);
       navigate("/dashboard");
       window.location.reload();
     } catch (err) {
@@ -43,12 +44,12 @@ export default function LoginComponent() {
   return (
     <div className="mainContent w-full h-full flex flex-col gap-5 justify-center items-center text-[#e5e5e5]">
       <div className="firstHalf flex flex-col items-center gap-4 w-full max-w-md ">
-        <div className="flex items-center flex-col w-2/3 gap-4">
+        <div className="flex items-center flex-col w-full gap-4">
           <form
             onSubmit={handleSubmit}
             ref={formRef}
             action=""
-            className="flex flex-col gap-4 w-full"
+            className="flex flex-col gap-4 w-2/3"
           >
             <div className="flex flex-col gap-2 ">
               <label className="pl-2">Email Address</label>
@@ -73,10 +74,10 @@ export default function LoginComponent() {
               />
             </div>
           </form>
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full mt-3 flex justify-center items-center">
             <Button
               formRef={formRef}
-              logovisibility={"hidden"}
+              logovisibility={"hidden w-full"}
               text={"Log in"}
             />
           </div>

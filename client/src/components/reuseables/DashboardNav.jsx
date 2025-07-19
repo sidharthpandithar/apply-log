@@ -4,10 +4,14 @@ import { SlCalender } from "react-icons/sl";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { IoIosContacts } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { BiLogOut } from "react-icons/bi";
 import { NavLink, Link } from "react-router";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PopupContext } from "../../contexts/PopupContext";
+import axios from "axios";
+import { useNavigate } from "react-router";
+const API = import.meta.env.VITE_API_BASE_URL;
 
 export default function DashboardNav({
   children,
@@ -16,6 +20,26 @@ export default function DashboardNav({
   buttonText,
   mobdescription,
 }) {
+  const navigate = useNavigate();
+  const logout = async () => {
+    try {
+      const res = await axios.get(`${API}/api/users/logout`, {
+        withCredentials: true,
+      });
+      navigate("/");
+    } catch (err) {
+      console.error("Error logging out", err);
+    }
+  };
+
+  const storedUser = localStorage.getItem("user");
+  let loggedUser = null;
+
+  if (storedUser) {
+    loggedUser = JSON.parse(storedUser);
+    console.log("User Email:", loggedUser.email);
+  }
+
   const [isOpen, setIsOpen] = useState(false);
   const { popup, setPopup } = useContext(PopupContext);
 
@@ -31,25 +55,35 @@ export default function DashboardNav({
         <div className="h-[12vh] w-full flex justify-center items-center ">
           <p className="text-3xl font-bold">ApplyLog</p>
         </div>
-        <div className="h-full flex flex-col items-center gap-5 w-full p-4 ">
-          {nav_items.map((item, index) => {
-            return (
-              <NavLink
-                key={index}
-                to={item.link}
-                className={({ isActive }) =>
-                  `flex justify-center items-center gap-3 w-full p-3 rounded-md ${
-                    isActive ? "bg-zinc-700" : "bg-zinc-800"
-                  }`
-                }
-              >
-                {item.logo} {item.text}
-              </NavLink>
-            );
-          })}
+        <div className="h-[88vh] flex flex-col items-center gap-5 w-full p-4 ">
+          <div className="h-full flex flex-col items-center gap-5 w-full p-4 ">
+            {nav_items.map((item, index) => {
+              return (
+                <NavLink
+                  key={index}
+                  to={item.link}
+                  className={({ isActive }) =>
+                    `flex justify-center items-center gap-3 w-full p-3 rounded-md ${
+                      isActive ? "bg-zinc-700" : "bg-zinc-800"
+                    }`
+                  }
+                >
+                  {item.logo} {item.text}
+                </NavLink>
+              );
+            })}
+          </div>
+
+          <p>{loggedUser?.user?.email}</p>
+          <div
+            onClick={logout}
+            className="flex justify-center items-center gap-3 px-4 py-2 rounded-md bg-zinc-800 hover:bg-zinc-700 hover:cursor-pointer"
+          >
+            <p className="text-xl text-bold ">Log Out</p>
+            <BiLogOut className="text-3xl" />
+          </div>
         </div>
       </div>
-
       <div className="rightNav border  w-full flex flex-col  min-h-screen">
         <div className="rightNavTop  bg-black flex h-[14vh]  justify-between">
           <div className="hamburgerNav md:hidden flex flex-col w-[20vw] min-h-screen ">
@@ -85,6 +119,13 @@ export default function DashboardNav({
                         {item.logo} {item.text}
                       </NavLink>
                     ))}
+                    <div
+                      onClick={logout}
+                      className="flex jflex justify-center items-center gap-3 w-full p-3 rounded-md  bg-zinc-800 hover:bg-zinc-700 hover:cursor-pointer"
+                    >
+                      <BiLogOut className="text-xl" />
+                      <p className="text-md text-bold ">Log Out</p>
+                    </div>
                   </div>
                 </motion.div>
               )}

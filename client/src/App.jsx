@@ -8,6 +8,7 @@ import Signup from "./components/Pages/Signup";
 import SignupOptions from "./components/reuseables/SignupPage/SignupOptions";
 import NewUser from "./components/reuseables/SignupPage/NewUser";
 import Login from "./components/Pages/Login";
+import AuthRoute from "./components/reuseables/AuthRoute/AuthRoute";
 import { PopupProvider } from "./contexts/PopupContext";
 
 export default function App() {
@@ -17,10 +18,20 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+
+            <Route
+              path="/dashboard"
+              element={
+                <AuthRoute>
+                  <Dashboard />
+                </AuthRoute>
+              }
+            />
+
             <Route path="/interviews" element={<Interviews />} />
             <Route path="/contacts" element={<HRContacts />} />
             <Route path="/resumes" element={<Resumes />} />
+
             <Route path="signup" element={<Signup />}>
               <Route index element={<SignupOptions />} />
               <Route path="newuser" element={<NewUser />} />

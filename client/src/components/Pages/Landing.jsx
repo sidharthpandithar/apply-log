@@ -9,12 +9,15 @@ import TrueFocus from "../reuseables/LandingPage/TrueFocus";
 import ChromaGrid from "../reuseables/LandingPage/ChromaGrid";
 import BounceCards from "../reuseables/LandingPage/BounceCards";
 import LazySection from "../reuseables/LandingPage/LazySection";
-import ScrambledText from "../reuseables/LandingPage/ScrambledText";
 import LocomotiveScroll from "locomotive-scroll";
 import Footer from "../reuseables/LandingPage/Footer";
 import GridLayoutMob from "../reuseables/LandingPage/GridLayoutMob";
+import BlurText from "../reuseables/LandingPage/BlurText";
 
 export default function Landing() {
+  const handleAnimationComplete = () => {
+    console.log("Animation completed!");
+  };
   const locomotiveScroll = new LocomotiveScroll();
   const images = [
     "/resume_thumb_1.png",
@@ -414,27 +417,27 @@ export default function Landing() {
             </p>
             <Accordion items={items} />
           </div>
-          <div className="rightSection h-full w-full flex-1 md:flex hidden hover:cursor-default text-center">
-            <ScrambledText
-              className="scrambled-text-demo"
-              radius={30}
-              duration={1.2}
-              speed={0.5}
-              scrambleChars={":"}
-            >
+          <div className="flex flex-col flex-1">
+            <div className="rightSection h-full w-full flex-col justify-center items-center flex-1 md:flex hidden hover:cursor-default text-center">
               <p className="text-base">
                 With powerful features like smart interview scheduling, document
                 storage, recruiter contact management, and insightful progress
                 metrics - ApplyLog ensures you never miss a deadline or lose
                 track of important details again.
               </p>
-
-              <p className="p-4">Organize. Track. Succeed.</p>
+              <BlurText
+                text="Organize. Track. Succeed."
+                delay={500}
+                animateBy="words"
+                direction="top"
+                onAnimationComplete={handleAnimationComplete}
+                className="text-5xl mb-8 mt-8"
+              />
               <p className="text-base">
                 Track. Succeed. With ApplyLog, your next opportunity is just a
                 click away.
               </p>
-            </ScrambledText>
+            </div>
           </div>
         </div>
       </LazySection>

@@ -31,13 +31,18 @@ export default function DashboardContent() {
 
         const sorted = res.data
           .sort((a, b) => new Date(a.date) - new Date(b.date))
-          .slice(0, 5);
+          .slice(0, 6);
 
         setInterviews(sorted);
 
         const upcomingSorted = res.data
-          .filter((interview) => new Date(interview.date) >= new Date())
-          .sort((a, b) => new Date(a.date) - new Date(b.date));
+          .filter(
+            (interview) =>
+              new Date(interview.date) >= new Date() &&
+              interview.status == "Applied"
+          )
+          .sort((a, b) => new Date(a.date) - new Date(b.date))
+          .slice(0, 6);
         setUpcoming(upcomingSorted);
 
         const totalapps = res.data.length;

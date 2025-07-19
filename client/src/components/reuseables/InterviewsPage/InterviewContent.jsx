@@ -99,7 +99,7 @@ export default function InterviewContent() {
           </div>
         </div>
       </div>
-      <div className="interviewContainer flex w-full h-full">
+      <div className="interviewContainer p-8 flex w-full h-full">
         {popup && <AddInterview />}
         {interviews.length === 0 && <NoData />}
         {interviews.length !== 0 && (

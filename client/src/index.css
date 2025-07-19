@@ -12,28 +12,26 @@ body {
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .blur-mask {
-    position: relative;
-    overflow: hidden;
-  }
+.blur-mask {
+  position: relative;
+  overflow: hidden;
+}
 
-  .blur-mask::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    mask-image: linear-gradient(to right, transparent 0%, black 40%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
-    mask-size: 100% 100%;
-    -webkit-mask-size: 100% 100%;
-    z-index: 0;
-    pointer-events: none;
-  }
+.blur-mask::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  z-index: 0;
+  pointer-events: none;
+}
 
-  .blur-mask > * {
-    position: relative;
-    z-index: 1;
-  }
+.blur-mask > * {
+  position: relative;
+  z-index: 1;
 }
