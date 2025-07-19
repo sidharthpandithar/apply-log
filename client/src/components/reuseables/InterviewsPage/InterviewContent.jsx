@@ -40,9 +40,9 @@ export default function InterviewContent() {
           withCredentials: true,
         });
 
-        const sorted = res.data
-          .sort((a, b) => new Date(a.date) - new Date(b.date))
-          .slice(0, 10);
+        const sorted = res.data.sort(
+          (a, b) => new Date(a.date) - new Date(b.date)
+        );
 
         setInterviews(sorted);
       } catch (err) {

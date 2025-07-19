@@ -26,6 +26,7 @@ export default function DashboardNav({
       const res = await axios.get(`${API}/api/users/logout`, {
         withCredentials: true,
       });
+      localStorage.clear();
       navigate("/");
     } catch (err) {
       console.error("Error logging out", err);
@@ -73,14 +74,15 @@ export default function DashboardNav({
               );
             })}
           </div>
-
-          <p>{loggedUser?.user?.email}</p>
-          <div
-            onClick={logout}
-            className="flex justify-center items-center gap-3 px-4 py-2 rounded-md bg-zinc-800 hover:bg-zinc-700 hover:cursor-pointer"
-          >
-            <p className="text-xl text-bold ">Log Out</p>
-            <BiLogOut className="text-3xl" />
+          <div className="border border-zinc-700 rounded-md p-4 flex flex-col gap-4">
+            <p>User: {loggedUser?.user?.email}</p>
+            <div
+              onClick={logout}
+              className="flex justify-center items-center gap-3 px-4 py-2 rounded-md bg-zinc-800 hover:bg-zinc-700 hover:cursor-pointer"
+            >
+              <p className="text-sm text-bold ">Log Out</p>
+              <BiLogOut className="text-xl" />
+            </div>
           </div>
         </div>
       </div>
@@ -102,29 +104,36 @@ export default function DashboardNav({
                   animate={{ x: 0 }}
                   exit={{ x: "-100%" }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className="flex-col menuContent mt-4 h-3/4 w-[70vw] bg-black z-10 rounded-br-md"
+                  className="flex-col menuContent mt-4 h-3/4 w-[100vw] bg-black z-10 rounded-br-md"
                 >
-                  <div className="flex flex-col gap-5 text-[#e5e5e5] p-4">
-                    {nav_items.map((item, index) => (
-                      <NavLink
-                        key={index}
-                        to={item.link}
-                        className={({ isActive }) =>
-                          `flex justify-center items-center gap-3 w-full p-3 rounded-md ${
-                            isActive ? "bg-zinc-700" : "bg-zinc-800"
-                          }`
-                        }
-                        onClick={() => setIsOpen(false)}
+                  <div className="flex flex-col justify-around h-full text-[#e5e5e5] p-4">
+                    <div className="flex flex-col gap-5 text-[#e5e5e5] p-4">
+                      {nav_items.map((item, index) => (
+                        <NavLink
+                          key={index}
+                          to={item.link}
+                          className={({ isActive }) =>
+                            `flex justify-center items-center gap-3 w-full p-3 rounded-md ${
+                              isActive ? "bg-zinc-700" : "bg-zinc-800"
+                            }`
+                          }
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.logo} {item.text}
+                        </NavLink>
+                      ))}
+                    </div>
+                    <div className="border border-zinc-700 rounded-md p-4 flex flex-col gap-4">
+                      <p className="text-center">
+                        User: {loggedUser?.user?.email}
+                      </p>
+                      <div
+                        onClick={logout}
+                        className="flex justify-center items-center gap-3 px-4 py-2 rounded-md bg-zinc-800 hover:bg-zinc-700 hover:cursor-pointer"
                       >
-                        {item.logo} {item.text}
-                      </NavLink>
-                    ))}
-                    <div
-                      onClick={logout}
-                      className="flex jflex justify-center items-center gap-3 w-full p-3 rounded-md  bg-zinc-800 hover:bg-zinc-700 hover:cursor-pointer"
-                    >
-                      <BiLogOut className="text-xl" />
-                      <p className="text-md text-bold ">Log Out</p>
+                        <p className="text-sm text-bold ">Log Out</p>
+                        <BiLogOut className="text-xl" />
+                      </div>
                     </div>
                   </div>
                 </motion.div>
