@@ -36,11 +36,7 @@ export default function DashboardContent() {
         setInterviews(sorted);
 
         const upcomingSorted = res.data
-          .filter(
-            (interview) =>
-              new Date(interview.date) >= new Date() &&
-              interview.status == "Applied"
-          )
+          .filter((interview) => new Date(interview.date) >= new Date())
           .sort((a, b) => new Date(a.date) - new Date(b.date))
           .slice(0, 6);
         setUpcoming(upcomingSorted);

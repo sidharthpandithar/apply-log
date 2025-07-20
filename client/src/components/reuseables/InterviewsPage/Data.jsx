@@ -14,6 +14,10 @@ export default function Data({
   const [isEditing, setIsEditing] = useState(false);
   const [newStatus, setNewStatus] = useState(status);
 
+  const [isEditingDate, setIsEditingDate] = useState(false);
+  const [newDate, setNewDate] = useState(date?.slice(0, 10)); // for input[type=date]
+  const [tempDate, setTempDate] = useState(newDate);
+
   const handleStatusChange = async (e) => {
     const updatedStatus = e.target.value;
     setNewStatus(updatedStatus);
@@ -31,11 +35,36 @@ export default function Data({
     }
   };
 
+  const handleDateSave = async () => {
+    try {
+      await axios.patch(
+        `${API}/api/interviews/update/${id}`,
+        {
+          status: newStatus, // existing status
+          date: tempDate, // new date
+        },
+        { withCredentials: true }
+      );
+      setNewDate(tempDate);
+      setIsEditingDate(false);
+      console.log("Date updated successfully");
+    } catch (error) {
+      console.error("Failed to update date:", error);
+    }
+  };
+
+  const handleDateCancel = () => {
+    setTempDate(newDate);
+    setIsEditingDate(false);
+  };
+
   return (
     <tbody>
       <tr className="text-center">
         <td className="border border-[#3f3f46] p-2">{company}</td>
         <td className="border border-[#3f3f46] p-2">{position}</td>
+
+        {/* Status Cell */}
         <td
           className="border border-[#3f3f46] p-2 cursor-pointer"
           onClick={() => setIsEditing(true)}
@@ -58,10 +87,45 @@ export default function Data({
             newStatus
           )}
         </td>
-        <td className="border border-[#3f3f46] p-2">{date}</td>
+
+        {/* Date Cell - ✅ FIXED */}
+        <td className="border border-[#3f3f46] p-2 text-white">
+          {isEditingDate ? (
+            <div className="flex flex-col items-center gap-1">
+              <input
+                type="date"
+                value={tempDate}
+                onChange={(e) => setTempDate(e.target.value)}
+                className="bg-zinc-700 text-white p-1 rounded"
+              />
+              <div className="flex gap-2 mt-1">
+                <button
+                  onClick={handleDateSave}
+                  className="bg-green-600 px-2 py-1 rounded text-white text-sm"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={handleDateCancel}
+                  className="bg-red-600 px-2 py-1 rounded text-white text-sm"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          ) : (
+            <span
+              onClick={() => setIsEditingDate(true)}
+              className="cursor-pointer"
+            >
+              {new Date(newDate).toLocaleDateString("en-IN")}
+            </span>
+          )}
+        </td>
+
         <td
           onClick={() => handleDelete(id)}
-          className="border border-[#3f3f46] p-2"
+          className="border border-[#3f3f46] p-2 cursor-pointer text-red-500"
         >
           Delete
         </td>

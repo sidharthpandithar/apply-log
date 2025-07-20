@@ -127,7 +127,7 @@ export default function InterviewContent() {
                     <th className="border border-[#3f3f46] p-2 text-center">
                       <div className="flex gap-2 justify-center items-center">
                         <BsCalendarDateFill />
-                        <p>Updated On</p>
+                        <p>Date</p>
                       </div>
                     </th>
                     <th className="border border-[#3f3f46] p-2 text-center">
